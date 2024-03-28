@@ -1,0 +1,63 @@
+.main_wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 75vh;
+    width: 100%;
+    border: 2px solid rgb(155, 85, 221);
+    margin-top: 24px;
+    border-radius: 12px;
+    padding: 24px;
+    background-color: rgb(96, 41, 148);
+    ;
+
+}
+
+.contacts_wrapper {
+    background-color: rgb(96, 41, 148);
+    width: 540px;
+    height: 100%;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.title {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: white;
+    margin-bottom: 64px;
+    font-size: 28px;
+}
+
+.address {
+    font-style: normal;
+    color: white;
+
+}
+
+.city,
+.address_info {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.address_info {
+    margin-bottom: 40px;
+}
+
+.tel,
+.phone {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.phone {
+    margin-bottom: 0;
+}
+
+.link {
+    color: white;
+}

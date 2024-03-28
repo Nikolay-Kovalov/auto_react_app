@@ -1,0 +1,35 @@
+.container {
+    width: 1320px;
+    margin: 0 auto;
+}
+
+.header {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: #8CC084;
+    /* background: linear-gradient(to right, rgb(155, 85, 221), rgb(180, 123, 233)); */
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav_list {
+    display: flex;
+    gap: 24px;
+
+}
+
+.nav_link {
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px;
+    font-size: 24px;
+    color: #333;
+    transition: all 0.3s linear;
+}
+
+.nav_link:hover {
+    transform: scale(1.05);
+}

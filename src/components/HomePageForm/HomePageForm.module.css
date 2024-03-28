@@ -1,0 +1,120 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding: 24px;
+    width: 540px;
+    height: 540px;
+    border: 2px solid #ECDCB0;
+    /* box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.4); */
+    border-radius: 12px;
+}
+
+.form_inner_wrapper {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 102px;
+}
+
+.label {
+    font-size: 20px;
+    margin-left: 12px;
+}
+
+.input {
+    height: 52px;
+    padding: 12px;
+    font-size: 20px;
+    border: 2px solid #ECDCB0;
+    border-radius: 12px;
+    caret-color: #333;
+}
+
+.input:focus-within {
+    outline: none;
+}
+
+.callback_btn {
+    width: 220px;
+    height: 56px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: #C1D7AE;
+    border: none;
+    color: #333;
+    margin: 0 auto;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.callback_btn:hover {
+    background-color: #8CC084;
+}
+
+.input_check_wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.input_check_wrapper>.label {
+    margin-left: 0;
+}
+
+.input_check {
+    margin-left: 4px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    position: relative;
+}
+
+.input_check::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.188);
+    border-radius: 4px;
+    background-color: white;
+
+}
+
+.input_check:checked::before {
+    background-color: #C1D7AE;
+    border: none;
+}
+
+.focused {
+    border: 2px solid #968E85;
+}
+
+.error {
+    border: 2px solid rgb(255, 40, 40);
+}
+
+.valid {
+    border: 2px solid #8CC084;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.text_error {
+    margin-left: 12px;
+    color: red;
+
+}

@@ -1,0 +1,23 @@
+.img {
+    width: 720px;
+    float: right;
+    padding-left: 12px;
+
+
+}
+
+.text {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.text_last {
+    font-size: 20px;
+
+
+}
+
+.title {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}

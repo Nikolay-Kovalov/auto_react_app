@@ -1,0 +1,54 @@
+.container {
+    padding: 24px;
+    width: 700px;
+    margin: 0 auto;
+    background-color: rgb(96, 41, 148);
+    border-radius: 12px;
+}
+
+.title {
+    text-align: center;
+    color: white;
+}
+
+.select_wrapper {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 48px;
+}
+
+.label {
+    font-size: 24px;
+    margin-right: 8px;
+    color: white;
+}
+
+.select {
+    appearance: none;
+    width: 160px;
+    height: 44px;
+    padding: 8px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+}
+
+.select:focus-within {
+    outline: none;
+}
+
+.result {
+    padding: 24px;
+    border-radius: 12px;
+    background-color: rgb(38, 58, 159);
+    margin-top: 48px;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+.price {
+    font-weight: 700;
+    color: white;
+}

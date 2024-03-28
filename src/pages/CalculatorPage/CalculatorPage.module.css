@@ -1,0 +1,35 @@
+.title {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.description {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 20px;
+}
+
+.select {
+    display: inline-block;
+    font-size: 20px;
+    appearance: none;
+    width: 200px;
+    height: 44px;
+    margin: 24px auto;
+    padding: 8px;
+}
+
+.select:focus-within {
+    outline: none;
+}
+
+.total_price {
+    text-align: center;
+    font-size: 24px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+}

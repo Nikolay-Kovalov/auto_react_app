@@ -1,0 +1,68 @@
+.img {
+    width: 420px;
+    height: 280px;
+    transition: all 0.3s linear;
+}
+
+.img:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.item {
+    overflow: hidden;
+    /* border: 1px solid#968E85; */
+    box-shadow: 0 0 10px 2px #968e8565;
+    border-radius: 8px;
+}
+
+.item_title {
+    margin-bottom: 12px;
+    font-size: 32px;
+    color: #333;
+    font-weight: 500;
+}
+
+.price {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #515151;
+}
+
+.wrapper {
+    padding: 12px;
+    padding-bottom: 16px;
+}
+
+.calculate {
+    width: 192px;
+    height: 44px;
+    color: #333;
+    background-color: #C1D7AE;
+    border: 2px solid #C1D7AE;
+    border-radius: 8px;
+    font-size: 24px;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.calculate:hover {
+    transform: scale(1.03);
+}
+
+.order {
+    width: 192px;
+    height: 44px;
+    color: #333;
+    border: 2px solid#C1D7AE;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.order:hover {
+    transform: scale(1.03);
+}
