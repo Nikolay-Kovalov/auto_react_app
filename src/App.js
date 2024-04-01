@@ -11,6 +11,7 @@ import Layout from './components/Layout/Layout';
 import CalculatorPage from './pages/CalculatorPage/CalculatorPage';
 import ModalContextProvider from './components/Modal/ModalContext';
 import cars from './data';
+import SliderContextProvider from './components/Slider/SliderContext';
 
 function App() {
     const [chosenPhoto, setChosenPhoto] = useState(null);
@@ -21,7 +22,7 @@ function App() {
     const showActiveSlideStep = (slideStep) => {
         setActiveSlideStep(slideStep)
     }
-          console.log(activeSlideStep)
+       
 
     // console.log(chosenPhoto)
     // console.log(chosenCard)
@@ -30,7 +31,6 @@ function App() {
     }
     useEffect(() => {
         showActiveCard(chosenCard)
-        console.log(activeCard)
     }, [chosenCard, activeCard])
     
     const showBigPhoto = (id) => {
@@ -43,6 +43,7 @@ function App() {
           <Router>
     <div className="App">
               <CarProvider>
+                  <SliderContextProvider>
                   <ModalContextProvider>
         <AnimatePresence wait>
             <Routes>
@@ -63,6 +64,7 @@ function App() {
           </Routes>
                       </AnimatePresence>
                       </ModalContextProvider>
+                      </SliderContextProvider>
           </CarProvider>
       </div>
             </Router>

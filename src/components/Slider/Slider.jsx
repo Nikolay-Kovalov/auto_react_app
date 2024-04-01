@@ -1,52 +1,70 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect,  useRef, useState } from 'react';
 import styles from './Slider.module.css';
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 import { ModalContext } from '../Modal/ModalContext';
 
-const Slider = ({activeSlideStep, showActiveSlideStep, slides, width, slideWidth, slideHight, showBigPhoto,showBigCard, parentId, pointerEvents}) => {
-    const [slideStep, setSlideStep] = useState(activeSlideStep || 0);
+import { SliderContext } from './SliderContext';
+
+
+const Slider = ({ slides, width, slideWidth, slideHight, showBigPhoto,showBigCard, parentId}) => {
     const [disabledPrevBtn, setDesabledPrevBtn] = useState(true);
     const [disabledNextBtn, setDesabledNextBtn] = useState(false);
     const slidesRef = useRef();
+    // const [bigSlideStep, setBigSlideStep] = useState(0);
+    const [slideStep, setSlideStep] = useState(0);
 
-    const { isModalOpen } = useContext(ModalContext);
+  
 
-    useEffect(() => {
-        if (isModalOpen) {
-            showActiveSlideStep(slideWidth*2)
-                console.log(activeSlideStep)
-        }
-        if (!isModalOpen) { showActiveSlideStep(slideWidth) }
-    }, [slideStep, showActiveSlideStep, isModalOpen, slideWidth, activeSlideStep])
 
-    const{handleOpenModal} = useContext(ModalContext)
+
+    // const incrementBigSlideStep = (slideWidth) => {
+    //    setBigSlideStep(prevStep => prevStep + slideWidth)
+    // }
+
+     const incrementSlideStep = (slideWidth) => {
+       setSlideStep(prevStep => prevStep + slideWidth)
+     }
+    
+    //     const decrementBigSlideStep = (slideWidth) => {
+    //    setBigSlideStep(prevStep => prevStep - slideWidth)
+    // }
+
+     const decrementSlideStep = (slideWidth) => {
+       setSlideStep(prevStep => prevStep - slideWidth)
+    }
+
+    const { isModalOpen,handleOpenModal } = useContext(ModalContext);
 
     const handleShowLargeImg = (id) => {
         handleOpenModal()
         showBigPhoto(id)
         showBigCard(parentId)
-
     }
 
-    useEffect(() => {
   
+    const {bigSlideStep, incrementBigSlideStep, decrementBigSlideStep } = useContext(SliderContext)
+    // const {bigSlideStep, incrementBigSlideStep, slideStep, incrementSlideStep,decrementBigSlideStep, decrementSlideStep } = useContext(SliderContext)
+
+    useEffect(() => {
         if (isModalOpen) {
-                    console.log(slideStep)
-        //   slidesRef.current.style = `transform: translateX(-${slideStep}px)`;
-             if (slideStep > 0) {
+      
+            slidesRef.current.style = `transform: translateX(-${bigSlideStep}px)`;
+            console.log(bigSlideStep)
+             if (bigSlideStep > 0) {
             setDesabledPrevBtn(false)
-        } if (slideStep === 0) {
+        } if (bigSlideStep === 0) {
             setDesabledPrevBtn(true)
         }
-        if (slideStep === (slidesRef.current.children.length * slideWidth)-slideWidth) {
+        if (bigSlideStep === (slidesRef.current.children.length * slideWidth)-slideWidth) {
             setDesabledNextBtn(true)
         }
-        if(slideStep < (slidesRef.current.children.length * slideWidth)-slideWidth) {
+        if(bigSlideStep < (slidesRef.current.children.length * slideWidth)-slideWidth) {
             setDesabledNextBtn(false)
         }  
         }
         if (!isModalOpen) {
+         
           slidesRef.current.style = `transform: translateX(-${slideStep}px)`;
              if (slideStep > 0) {
             setDesabledPrevBtn(false)
@@ -58,32 +76,38 @@ const Slider = ({activeSlideStep, showActiveSlideStep, slides, width, slideWidth
         }
         if(slideStep < (slidesRef.current.children.length * slideWidth)-slideWidth) {
             setDesabledNextBtn(false)
-        }   
+            }   
         }
+  
        
-    }, [slideStep, slideWidth, isModalOpen])
+    }, [slideStep, slideWidth, isModalOpen, bigSlideStep,parentId])
 
     const onPrevBtnClick = () => {
-
-slidesRef.current.style = `transform: translateX(-${slideStep}px)`   
-setSlideStep(prevStep => prevStep - slideWidth)
-    showActiveSlideStep(slideStep) 
+        if (isModalOpen) {
+            slidesRef.current.style = `transform: translateX(-${slideStep}px)` 
+            decrementBigSlideStep(slideWidth)
+            decrementSlideStep(slideWidth/2)
+        }
+        if (!isModalOpen) {
+            slidesRef.current.style = `transform: translateX(-${slideStep}px)`
+            decrementSlideStep(slideWidth)
+            decrementBigSlideStep(slideWidth*2)
+        }
     }
 
     const onNextBtnClick = () => {
- 
         if (isModalOpen) {
-                console.log(slideStep)
-        slidesRef.current.style = `transform: translateX(-${activeSlideStep}px)`
-    
-        setSlideStep(prevStep => prevStep + slideWidth)
-        showActiveSlideStep(slideStep)
+        slidesRef.current.style = `transform: translateX(-${bigSlideStep}px)`
+            incrementBigSlideStep(slideWidth)
+            incrementSlideStep(slideWidth/2)
+            console.log(slideStep)
+
    }
         if (!isModalOpen) {
           slidesRef.current.style = `transform: translateX(-${slideStep}px)`
-        console.log(slideStep)
-        setSlideStep(prevStep => prevStep + slideWidth)
-        showActiveSlideStep(slideStep)
+           incrementSlideStep(slideWidth)
+            incrementBigSlideStep(slideWidth * 2)
+           
       }  
     }
     return (
